@@ -2,7 +2,7 @@
  * API Client - Maneja peticiones HTTP al backend
  */
 
-const API_BASE = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5000/api';
+import { getApiBaseUrl } from './configLoader';
 
 export interface ApiResponse<T> {
   success: boolean;
@@ -12,10 +12,12 @@ export interface ApiResponse<T> {
 }
 
 class ApiClient {
-  private baseUrl: string;
+  private baseUrl: string | null = null;
 
-  constructor(baseUrl: string = API_BASE) {
-    this.baseUrl = baseUrl;
+  async ensureBaseUrl() {
+    if (!this.baseUrl) {
+      this.baseUrl = await getApiBaseUrl();
+    }
   }
 
   private async request<T>(
@@ -23,6 +25,7 @@ class ApiClient {
     options: RequestInit = {}
   ): Promise<ApiResponse<T>> {
     try {
+      await this.ensureBaseUrl();
       const url = `${this.baseUrl}${endpoint}`;
       const response = await fetch(url, {
         ...options,

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Regulation, RegulationType } from '../types';
 import { toast } from 'sonner';
+import { getApiBaseUrl } from '../lib/configLoader';
 
 interface RegulationFormProps {
   regulation?: Regulation;
@@ -102,7 +103,8 @@ const RegulationForm: React.FC<RegulationFormProps> = ({ regulation, onSave, onC
         const payload = new FormData();
         payload.append('file', pdfFile);
 
-        const response = await fetch('http://localhost:5000/api/uploads/regulation-file', {
+        const apiBaseUrl = await getApiBaseUrl();
+        const response = await fetch(`${apiBaseUrl}/uploads/regulation-file`, {
           method: 'POST',
           body: payload,
         });

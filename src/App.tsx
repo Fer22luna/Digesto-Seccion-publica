@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { Toaster } from 'sonner';
 import { Routes, Route } from 'react-router-dom';
+import { loadConfig } from './lib/configLoader';
 
 // pages
 import PublicRegulationsList from './pages/PublicRegulationsList';
@@ -13,6 +14,12 @@ import PublicRegulationsList from './pages/PublicRegulationsList';
 // import AdminRegulationEditor from './pages/admin/RegulationEditor';
 
 function App() {
+  useEffect(() => {
+    // Cargar configuración al inicio de la aplicación
+    loadConfig().catch(error => {
+      console.error('Error al cargar configuración inicial:', error);
+    });
+  }, []);
 
   return (
     <div className="App flex flex-col min-h-screen">

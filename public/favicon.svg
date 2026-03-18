@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Background -->
+  <rect width="64" height="64" fill="#1e40af" rx="8"/>
+  
+  <!-- Document/Book shape -->
+  <path d="M 16 10 L 16 54 Q 16 56 18 56 L 48 56 Q 50 56 50 54 L 50 10 Q 50 8 48 8 L 18 8 Q 16 8 16 10 Z" fill="#ffffff" stroke="#1e40af" stroke-width="1"/>
+  
+  <!-- Document lines -->
+  <line x1="20" y1="18" x2="46" y2="18" stroke="#1e40af" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="20" y1="26" x2="46" y2="26" stroke="#1e40af" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="20" y1="34" x2="46" y2="34" stroke="#1e40af" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="20" y1="42" x2="46" y2="42" stroke="#1e40af" stroke-width="1.5" stroke-linecap="round"/>
+  <line x1="20" y1="50" x2="36" y2="50" stroke="#1e40af" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
